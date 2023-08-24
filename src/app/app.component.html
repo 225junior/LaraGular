@@ -13,21 +13,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">pic</th>
-        <td>Yao Leonardo</td>
-        <td>M</td>
-        <td>✅</td>
+      <tr *ngFor="let person of persons">
+        <th scope="row">{{person.photo}}</th>
+        <td>{{person.name}}</td>
+        <td>{{person.sex == 1 ? 'M' : 'F'}}</td>
+        <td>{{ person.status == 1 ? '✅' : '❌'}}</td>
         <td>
-          <a class="btn btn-sm btn-outline-info" href="#" role="button">Active </a>
+          <a class="btn btn-sm btn-outline-info" href="#" role="button" (click)="updateSatus(person)">
+            {{person.status === 1 ? 'Désactiver': 'Activer'}}
+          </a>
         </td>
-      </tr>
-      <tr>
-        <th scope="row">pic</th>
-        <td>Emeline Grace </td>
-        <td>F</td>
-        <td>❌</td>
-        <td></td>
       </tr>
     </tbody>
   </table>
